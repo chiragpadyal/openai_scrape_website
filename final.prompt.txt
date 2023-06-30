@@ -1,0 +1,43 @@
+To improve the prompt, you can make the instructions more explicit and provide clearer examples. Here's an enhanced version of the prompt:
+
+---
+
+Prompt:
+From the given data, your task is to identify the pagination pattern and the next URL that this website uses for pagination.
+
+Example 1: If the current URL is `https://example.com/page/2`, the pagination pattern is `/page/{number}`.
+Example 2: If the current URL is `https://example.com/?page=2`, the pagination pattern is `/?page={number}`.
+
+Instructions:
+1. Examine the provided data and determine the pagination pattern used by the website for navigating to the next page. The pagination pattern consists of a URL pattern with a placeholder for the page number. For example, if the placeholder is `{number}`, it will be replaced with the actual page number.
+2. Identify the next URL that should be followed for pagination. If there is no next page, set the value to "failed".
+3. Find the product URLs from the given data. Sort them based on priority using the following criteria:
+
+   - The product URLs should have the same pattern as the current URL.
+   - The product URLs should have similar HTML tags as specified in the JSON data.
+   - The product URLs should have similar classes.
+   - The product URLs may contain the product name specified as the `_value` key in the JSON data (not mandatory).
+   - The product URLs may contain an `img` tag (not mandatory).
+4. If you cannot find any product URLs, set the value to "failed".
+5. The current URL of the page is {{ current_url }} and all href starting with `/` are relative to the current URL.
+
+Response Format:
+The answer should be in JSON format as shown below:
+
+```
+{
+    "next": "/samsung-phones-f-9-0-p2.php" or "failed",
+    "pagination_pattern": "/samsung-phones-f-9-p{number}.php" or "failed",
+    "product-url-list": [
+        "..."
+    ]
+}
+```
+
+Data:
+
+```
+{{ data }}
+```
+
+---
