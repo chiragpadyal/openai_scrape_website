@@ -371,6 +371,14 @@ common_style_classes = [
 ]
 unique_common_style_classes = list(set(common_style_classes))
 
+# TOKENS
+username = '***'
+password = '***'
+
+tokenNimble = base64.b64encode(
+    f"{username}:{password}".encode("ascii")).decode("ascii")
+openai.api_key = "sk-***"
+
 
 # Hashing
 
@@ -597,8 +605,6 @@ def from_html_to_json(html_string, deb=False, cev=True, cea=True, classInc=True,
 
 # OPENAI
 
-openai.api_key = "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"
-
 
 def prompt_generator(data, url, save_to_file=True):
     # prompt making
@@ -642,13 +648,6 @@ def get_token_size(txt, header=1200):
 
 
 # Get SCRAPE DATA
-
-username = 'freakstar03@gmail.com'
-password = '540timms'
-
-tokenNimble = base64.b64encode(
-    f"{username}:{password}".encode("ascii")).decode("ascii")
-
 
 def get_scrape_data(_url, unlimited=False):
     url = 'https://api.webit.live/api/v1/realtime/web'

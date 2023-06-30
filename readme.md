@@ -2,10 +2,20 @@
 
 Solution to nimbleway's coding challenge
 
+## Requirements
+
+- openai api token
+- nimbleway api token
+
 ## Installation and running
 
 ```bash
 pip -r requirements.txt
+```
+
+> change `openai_token` and `nimbleway_token` in `main.py` file
+
+```bash
 python main.py -U url
 ```
 
