@@ -6,8 +6,10 @@ Solution to nimbleway's coding challenge
 
 ```bash
 pip -r requirements.txt
-python run.py
+python main.py -U url
 ```
+
+> example `python main.py -U https://www.gsmarena.com/samsung-phones-9.php`
 
 ## Challenges
 
